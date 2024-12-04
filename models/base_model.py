@@ -26,11 +26,14 @@ class BaseModel():
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
     
-    def save(self, storage=None):
-        if storage is None:
-            storage = FileStorage()
-        self.updated_at = datetime.now()
-        storage.save()
+    def save(self, *args, **kwargs):
+        if kwargs in FileStorage():
+            kwargs.storage = FileStorage.save()
+        else:
+            self.storage = FileStorage() 
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            kwargs.save()
         return
     
     def to_dict(self):
