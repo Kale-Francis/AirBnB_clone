@@ -1,14 +1,3 @@
-# AIRBNB - The CONSOLE
- **This is the first step to airbnb creation, creating the console.
- **To achieve this we first need to create a command line interpreter(cmd).
- **To start the cmd you first need to call it the file mast be executeble for it to be called you type (./console.py) in your terminal.
- **After calling the cmd, to use it u can use the various types of functions these are :: 
- 1.emptyline() - Method called when an empty line is entered in response to the prompt. If this method is not overridden, it repeats the last nonempty command entered.
- 2.default(line)- Method called on an input line when the command prefix is not recognized. If this method is not overridden, it prints an error message and returns.
- 3.completedefault(text, line, begidx, endidx)- Method called to complete an input line when no command-specific complete_*() method is available. By default, it returns an empty list.
- 4.onecmd(str)- Interpret the argument as though it had been typed in response to the prompt. This may be overridden, but should not normally need to be; see the precmd() and postcmd() methods for useful execution hooks. The return value is a flag indicating whether interpretation of commands by the interpreter should stop. If there is a do_*() method for the command str, the return value of that method is returned, otherwise the return value from the default() method is returned.
- 5.cmdloop(intro=None)- Repeatedly issue a prompt, accept input, parse an initial prefix off the received input, and dispatch to action methods, passing them the remainder of the line as argument.
- 6.postloop()- Hook method executed once when cmdloop() is about to return. This method is a stub in Cmd; it exists to be overridden by subclasses.
- 7.preloop()- Hook method executed once when cmdloop() is called. This method is a stub in Cmd; it exists to be overridden by subclasses.
- 8.postcmd(stop, line)- Hook method executed just after a command dispatch is finished. This method is a stub in Cmd; it exists to be overridden by subclasses. line is the command line which was executed, and stop is a flag which indicates whether execution will be terminated after the call to postcmd(); this will be the return value of the onecmd() method. The return value of this method will be used as the new value for the internal flag which corresponds to stop; returning false will cause interpretation to continue.
- 9.precmd(line)- Hook method executed just before the command line line is interpreted, but after the input prompt is generated and issued. This method is a stub in Cmd; it exists to be overridden by subclasses. The return value is used as the command which will be executed by the onecmd() method; the precmd() implementation may re-write the command or simply return line unchanged.
+AirBnB is a complete web application, integrating database storage(not yet implemented), a back-end API((not yet implemented), and front-end((not yet implemented) interfacing in a clone of AirBnB.
+
+The project currently only implements the back-end console.
