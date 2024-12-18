@@ -7,23 +7,28 @@ import datetime
 import uuid
 
 
-class BaseModel (object):
+class BaseModel():
     """ 
     class for BaseModel
 
     """
-    def self_uuid(self, id):
+    def self_uuid(self):
         """
         this is a public instance attribute assigning an uuid
         """
-        self.uuid = uuid.uuid4()
         self.id = str(uuid.uuid4())
+        self.uuid = uuid.uuid4()
 
-    def date_time(self):
+    def created_at(self):
         """
         assigns datetime
         """
         self.created_at = datetime.now()
+
+    def updated_at(self):
+        """
+        assigns datetime
+        """
         self.updated_at = datetime.now()
 
     def __str__(self):
@@ -43,13 +48,8 @@ class BaseModel (object):
         returns a dictionary containing all keys/values
         """
         return f"[{self.__dict__}] [{self.__class__.__name__}]"
-    
-    def format(self):
-        """
-        convereted to string with isoformat()
-
-        """
+        self.created_at = isoformat(datetime.now())
         self.updated_at = isoformat(datetime.now())
-        self.created_at = isoformat(datetime.now()) 
+    
 
         
