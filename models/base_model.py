@@ -5,6 +5,7 @@ Module for console
 """
 from datetime import datetime
 import uuid
+from models import storage
 
 
 class BaseModel:
@@ -27,6 +28,9 @@ class BaseModel:
                 if key != "__class__":
                     setattr(self, key, value)
 
+        if storage is not None:
+            storage.new(self)
+
     def __str__(self):
         """
         Returns a string representation of the instance.
@@ -39,6 +43,8 @@ class BaseModel:
         Updates the `updated_at` attribute with the current datetime.
         """
         self.updated_at = datetime.now()
+        storage.save()
+
 
     def to_dict(self):
         """
