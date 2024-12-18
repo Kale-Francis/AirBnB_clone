@@ -12,13 +12,20 @@ class BaseModel:
     A base model class that defines common attributes and methods for other classes.
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         Initializes a new instance of BaseModel.
         """
         self.id = str(uuid.uuid4())  # Generate a unique ID
         self.created_at = datetime.now()  # Current datetime at instance creation
         self.updated_at = self.created_at  # Initially same as created_at
+
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                if key != "__class__":
+                    setattr(self, key, value)
 
     def __str__(self):
         """
