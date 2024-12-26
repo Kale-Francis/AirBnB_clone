@@ -6,7 +6,9 @@ Contains BaseModel tests
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 from models import storage
+import json
 
 class BaseModel(unittest.TestCase):
     """Tests for BaseModel class"""
