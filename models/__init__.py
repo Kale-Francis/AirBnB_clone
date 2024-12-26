@@ -4,5 +4,8 @@ Contains Packages and modules for models
 """
 
 import json
-from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
+from models import BaseModel
+from models import FileStorage
+
+storage = FileStorage
+storage.reload()

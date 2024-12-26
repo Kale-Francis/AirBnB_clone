@@ -3,8 +3,6 @@
 Contains the FileStorage class
 """
 
-from models.engine.file_storage import FileStorage
+from models.engine import FileStorage
 import json
 
-storage = FileStorage
-storage.reload()
