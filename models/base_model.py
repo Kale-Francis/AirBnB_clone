@@ -26,7 +26,7 @@ class BaseModel:
                     self.id = value
 
         if storage is None:
-            storage.new(self) = self
+            storage.new(self)
 
     def __str__(self):
         """Return a string representation of the BaseModel class"""
