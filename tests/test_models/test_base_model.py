@@ -6,8 +6,7 @@ Contains BaseModel tests
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
-import sys
-sys.path.append('/path/to/AIRBNB_CLONE/models')
+from models import storage
 
 class BaseModel(unittest.TestCase):
     """Tests for BaseModel class"""
@@ -15,6 +14,7 @@ class BaseModel(unittest.TestCase):
     def test_base_model(self):
         """Tests for BaseModel class"""
         self.assertIsInstance(BaseModel(), BaseModel)
+
 
     def test_id(self):
         """Tests for id attribute"""
@@ -39,6 +39,34 @@ class BaseModel(unittest.TestCase):
     def test_to_dict(self):
         """Tests for to_dict method"""
         self.assertIsInstance(BaseModel().to_dict(), dict)
+
+    def test_kwargs(self):
+        """Tests for kwargs"""
+        self.assertIsInstance(BaseModel(**{'id': '123', 'created_at': '2022-01-01T00:00:00.000000', 'updated_at': '2022-01-01T00:00:00.000000'}), BaseModel)
+
+    def test_args(self):
+        """Tests for args"""
+        self.assertIsInstance(BaseModel('123', '2022-01-01T00:00:00.000000', '2022-01-01T00:00:00.000000'), BaseModel)
+
+    def test_storage(self):
+        """Tests for storage"""
+        self.assertIsInstance(storage, FileStorage)
+
+    def test_desrialize(self):
+        """Tests for deserialization"""
+        self.assertIsInstance(BaseModel().deserialize({'id': '123', 'created_at': '2022-01-01T00:00:00.000000', 'updated_at': '2022-01-01T00:00:00.000000'}), BaseModel)
+
+    def test_serialization(self):
+        """Tests for serialization"""
+        self.assertIsInstance(BaseModel().serialize(), dict)
+
+    def test_json(self):
+        """Tests for json"""
+        self.assertIsInstance(BaseModel().to_json(), str)
+
+    def test_intergation(self):
+        """Tests for integration"""
+        self.assertIsInstance(BaseModel().save(), None)
 
 if __name__ == '__main__':
     unittest.main()
