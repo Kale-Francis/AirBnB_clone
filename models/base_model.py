@@ -4,7 +4,7 @@ Contains the BaseModel class
 """
 import uuid
 from datetime import datetime
-from models import storage
+from models.engine import storage
 
 class BaseModel:
     """The BaseModel class"""
