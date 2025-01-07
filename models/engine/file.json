@@ -1,0 +1,10 @@
+{
+    "BaseModel.some-uuid": {
+        "__class__": "BaseModel",
+        "id": "some-uuid",
+        "created_at": "ISO-8601 timestamp",
+        "updated_at": "ISO-8601 timestamp",
+        "name": "My_First_Model",
+        "my_number": 89
+    }
+}
