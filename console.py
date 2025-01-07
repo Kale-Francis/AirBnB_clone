@@ -11,11 +11,11 @@ class HBNBCommand(cmd.Cmd):
     """Command interpreter class for AirBnB clone"""
     prompt = "(hbnb) "
 
-    def do_quit(self, arg):
+    def quit(self, arg):
         """Quit command to exit the program"""
         return True
 
-    def do_EOF(self, arg):
+    def EOF(self, arg):
         """Handles EOF (Ctrl+D) to exit the program"""
         print()
         return True
